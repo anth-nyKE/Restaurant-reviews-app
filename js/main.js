@@ -156,49 +156,43 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  * Create restaurant HTML.
  */
 createRestaurantHTML = (restaurant) => {
-    const li = document.createElement('li');
-    const imageContainer = document.createElement('div');
+  const li = document.createElement('li');
 
-      //assign a class to the image.
-      imageContainer.className = "image-container";
-      const image = document.createElement('img');
+  const imageContainer = document.createElement('div');
+  imageContainer.className = "image-container";
+  const image = document.createElement('img');
+  image.className = 'restaurant-img';
+  image.setAttribute('alt', restaurant.name + " restaurant image");
+  const imageurl = DBHelper.imageUrlForRestaurant(restaurant);
+  const imagebase = imageurl.split(".");
+  const imageurl1x = imagebase[0] + "_1x." + imagebase[1];
+  const imageurl2x = imagebase[0] + "_2x." + imagebase[1];
+  image.src = imageurl2x;
+  image.srcset = `${imageurl2x} 300w, ${imageurl1x} 600w`;
+  li.append(imageContainer);
+  imageContainer.append(image);
 
-      //set class name for use in the css file.
-      image.className = 'restaurant-img';
-      image.setAttribute('alt', restaurant.name + " restaurant image");
-      const imageurl = DBHelper.imageUrlForRestaurant(restaurant);
-      
-      //select the image name without the extension
-      const imagebase = imageurl.split(".");  
-      const imageurl1x = imagebase[0] + "_1x." + imagebase[1];
-      const imageurl2x = imagebase[0] + "_2x." + imagebase[1];
-      image.src = imageurl2x;
-      image.srcset = `${imageurl2x} 300w, ${imageurl1x} 600w`;
+  const name = document.createElement('h4');
+  name.innerHTML = restaurant.name;
+  li.append(name);
 
-      li.append(imageContainer);  
-      imageContainer.append(image);
+  const neighborhood = document.createElement('p');
+  neighborhood.innerHTML = restaurant.neighborhood;
+  li.append(neighborhood);
 
-      const name = document.createElement('h1');
-      name.innerHTML = restaurant.name;
-      li.append(name);
+  const address = document.createElement('p');
+  address.innerHTML = restaurant.address;
+  li.append(address);
 
-      const neighborhood = document.createElement('p');
-      neighborhood.innerHTML = restaurant.neighborhood;
-      li.append(neighborhood);
+  const more = document.createElement('button');
+  more.innerHTML = 'View Details';
+  more.onclick = function() {
+     const url = DBHelper.urlForRestaurant(restaurant);
+     window.location = url;
+   }
+  li.append(more)
 
-      const address = document.createElement('p');
-      address.innerHTML = restaurant.address;
-      li.append(address);
-
-      const more = document.createElement('button');
-      more.innerHTML = 'View Details';
-      more.onclick = function() {
-        const url = DBHelper.urlForRestaurant(restaurant);
-        window.location = url;
-      }
-    li.append(more)
-
-    return li
+  return li
 }
 
 /**

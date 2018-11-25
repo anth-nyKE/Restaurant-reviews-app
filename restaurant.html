@@ -3,10 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-
-  <!--make the page responsive on various viewports-->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Normalize.css for better cross-browser consistency -->  
+  <!-- Normalize.css for better cross-browser consistency -->
   <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
   <!-- Main CSS file -->
   <link rel="stylesheet" href="css/styles.css" type="text/css">
@@ -16,16 +14,13 @@
 </head>
 
 <body class="inside">
-
   <!-- Beginning header -->
   <header>
     <!-- Beginning nav -->
     <nav class="nav-title">
-      <h1><a href="/">Restaurant Reviews</a></h1>
+      <h2><a href="/">Restaurant Reviews</a></h2>
     </nav>
-
     <!-- Beginning breadcrumb -->
-    <!--adding accessibility via ARIA label-->
     <nav aria-label='Breadcrumb'>
       <ul id="breadcrumb" >
         <li><a href="/">Home</a></li>
@@ -38,27 +33,21 @@
 
   <!-- Beginning main -->
   <main id="maincontent">
-
     <!-- Beginning restaurant -->
-      <section id="restaurant-container">
-        
-        <!--a div to hold the specialty of the restaurant's dishes-->
-        <div class="restaurant-what">
-          <h1 id="restaurant-name"></h1>
-          <div class="image-container">
-            <img id="restaurant-img" alt="restaurant image">
-          </div>
-          <p id="restaurant-cuisine"></p>
+    <section id="restaurant-container">
+      <div class="restaurant-what">
+        <h2 id="restaurant-name"></h2>
+        <div class="image-container">
+          <img id="restaurant-img" alt="restaurant image">
         </div>
-
-        <!--a div to hold the location details of the restaurant-->
-        <div class="restaurant-where">
-          <h3 id="restaurant-address"></h3>
-          <table id="restaurant-hours"></table>
-        </div>
-      </section>
-      <!-- end restaurant -->
-
+        <p id="restaurant-cuisine"></p>
+      </div>
+      <div class="restaurant-where">
+        <h3 id="restaurant-address"></h3>
+        <table id="restaurant-hours"></table>
+      </div>
+    </section>
+    <!-- end restaurant -->
     <!-- Beginning map -->
     <section id="map-container">
       <div id="map"></div>
