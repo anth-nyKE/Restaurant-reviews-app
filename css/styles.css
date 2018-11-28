@@ -17,7 +17,9 @@
 
 @media screen and (max-width: 400px) {
 	html {font-size: 0.625em;}
-	.filter-options h3 {margin-top: 1rem;}
+  .filter-options h3 {margin-top: 1rem;}
+  #maincontent{width: 100%}
+  .nav-title h1 a{ font-size: 10vw}     
 }
 
 
@@ -86,6 +88,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 #maincontent {
   background-color: #fff;
   min-height: 100%;
+  min-width: min-content;
 }
 #footer {
   background-color: #444;
@@ -100,6 +103,9 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 	color: #f3f3f3;
 }
 /* ====================== Navigation ====================== */
+header{
+  min-width: max-content;
+}
 .nav-title {
   height: auto;
   background-color: #252831;
@@ -107,7 +113,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 	padding: 1.25rem;
 }
 nav h1 {
-  margin: auto 1.313em;
+  margin: auto;
 }
 nav h1 a {
   color: #fff;
@@ -245,6 +251,9 @@ nav h1 a {
 .inside #map {
   background-color: #FAFAFA;
 	position: relative;
+}
+.timing{
+  overflow-x: auto;
 }
 #restaurant-name {
   color: #5A00FA;
